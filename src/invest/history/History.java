@@ -1,26 +1,41 @@
 package invest.history;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import invest.session.Session;
-import invest.Investment;
 
 public abstract class History {
 
-  public String id;
+   private String path; 
+   private String id;
 
-    /**
-   * 
-   * @element-type Session
-   */
-  public Vector  sessions;
-    public Investment history;
+   /**
+    * 
+    * @element-type Session
+    */
+   private ArrayList<Session>  sessions;
 
-  public abstract void addSession(Session session);
+   public History(String id){
+      this.id = id;
+   }
+   
+   public abstract void addSession(Session session);
 
-  public abstract void getIndicators(Integer sessionsBack);
+   public abstract void getIndicators(int index);
 
-  public Session getSession(Integer date) {
-  return null;
-  }
+   public Session getSession(int index) {
+      Session session = null;
+      if (sessions != null){
+         if (sessions.size() > index)
+         {
+            session = sessions.get(index);
+         }
+      }
+      return session;
+   }
+
+   public void loadDataBase(String sqlDB) {
+      // TODO Auto-generated method stub
+      
+   }
 
 }

@@ -1,14 +1,25 @@
-import invest.session.Session;
-import invest.session.builder.SessionBuilder;
-import invest.session.builder.bloomberg.BloombergShareSessionBuilder;
+import java.io.File;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
+import invest.Investments;
 
 public class Main {
 
    public static void main(String[] args) {
-      // TODO Auto-generated method stub
-      SessionBuilder builder = new BloombergShareSessionBuilder();
-      Session session = builder.getSession("ITX:SM");
-      
+
+      JAXBContext jaxbContext;
+      try {
+         jaxbContext = JAXBContext.newInstance(Investments.class);
+         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+         Investments investments = (Investments) jaxbUnmarshaller.unmarshal(new File("D:\\Mis documentos\\Proyectos\\workspace\\InvesterAI\\file.xml"));
+         investments.update();
+      } catch (JAXBException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
    }
 
 }

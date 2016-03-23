@@ -5,16 +5,23 @@ import invest.session.Session;
 
 public class IndexHistory extends History {
 
-  public void addSession(IndexSession session) {
-  }
+   public IndexHistory(String id) {
+      super(id);
+      // TODO Auto-generated constructor stub
+   }
 
-  public void getIndicators(Integer sessionsBack) {
-  }
+   @Override
+   public void addSession(Session session) {
+      // TODO Auto-generated method stub
+      
+   }
 
-@Override
-public void addSession(Session session) {
-	// TODO Auto-generated method stub
-	
-}
+   @Override
+   public void getIndicators(int index) {
+      // TODO Auto-generated method stub
+      
+   }
+
+
 
 }

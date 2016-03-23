@@ -5,16 +5,22 @@ import invest.session.Session;
 
 public class CurrencyHistory extends History {
 
-  public void addSession(CurrencySession session) {
-  }
+   public CurrencyHistory(String id) {
+      super(id);
+      // TODO Auto-generated constructor stub
+   }
 
-  public void getIndicators(Integer sessionsBack) {
-  }
+   @Override
+   public void addSession(Session session) {
+      // TODO Auto-generated method stub
+      
+   }
 
-@Override
-public void addSession(Session session) {
-	// TODO Auto-generated method stub
-	
-}
+   @Override
+   public void getIndicators(int index) {
+      // TODO Auto-generated method stub
+      
+   }
+
 
 }
