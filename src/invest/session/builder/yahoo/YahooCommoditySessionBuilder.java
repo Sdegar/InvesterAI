@@ -5,7 +5,7 @@ import invest.session.builder.SessionBuilder;
 
 public class YahooCommoditySessionBuilder extends SessionBuilder {
 
-  public Session getSession() {
+  public Session getSession(String builderId) {
   return null;
   }
 

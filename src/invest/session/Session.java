@@ -1,17 +1,54 @@
 package invest.session;
 
+import java.util.Date;
 
 public abstract class Session {
 
-  private Integer date;
+   private Date date;
+   private Double closingPrice;
+   private Double openingPrice;
+   private Double intraDayMax;
+   private Double intraDayMin;
 
-  private Integer closingPrice;
+   public Date getDate() {
+      return date;
+   }
 
-  private Integer openingPrice;
+   public void setDate(Date date) {
+      this.date = date;
+   }
 
-  private Integer intraDayMax;
+   public Double getClosingPrice() {
+      return closingPrice;
+   }
 
-  public Integer intraDayMin;
+   public void setClosingPrice(Double closingPrice) {
+      this.closingPrice = closingPrice;
+   }
 
-  
+   public Double getOpeningPrice() {
+      return openingPrice;
+   }
+
+   public void setOpeningPrice(Double openingPrice) {
+      this.openingPrice = openingPrice;
+   }
+
+   public Double getIntraDayMax() {
+      return intraDayMax;
+   }
+
+   public void setIntraDayMax(Double intraDayMax) {
+      this.intraDayMax = intraDayMax;
+   }
+
+   public Double getIntraDayMin() {
+      return intraDayMin;
+   }
+
+   public void setIntraDayMin(Double intraDayMin) {
+      this.intraDayMin = intraDayMin;
+   }
+
+
 }

@@ -5,11 +5,11 @@ import invest.session.builder.SessionBuilder;
 
 public class Investment {
 
-  public String id;
+	private String id;
 
-  public String[] indicators;
+	private String[] indicators;
 
-    public History history;
-    public SessionBuilder builder;
+    private History history;
+    private SessionBuilder builder;
 
 }

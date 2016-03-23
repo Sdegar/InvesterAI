@@ -5,8 +5,8 @@ import invest.Investment;
 
 public abstract class SessionBuilder {
 
-    public Investment builder;
+   public Investment builder;
 
-  public abstract Session getSession();
+   public abstract Session getSession(String builderId);
 
 }
