@@ -23,12 +23,5 @@ public class Investments {
    public void setInvestment(List<Investment> investment) {  
        this.investment = investment;  
    }
-   
-   public void update()
-   {
-      for (Investment i:investment){
-         i.update();
-      }
-   }
-   
+  
 }

@@ -1,7 +1,10 @@
 package invest.history;
 
+import javax.sql.DataSource;
+
 import invest.session.Session;
 import invest.session.ShareSession;
+import invest.session.mapper.ShareSessionMapper;
 
 public class ShareHistory extends History {
 
@@ -10,9 +13,9 @@ public class ShareHistory extends History {
                   "WHERE TABLE_SCHEMA = 'TheSchema'" +  
                   "AND  TABLE_NAME = 'TheTable')";
    
-   public ShareHistory(String id) {
-      super(id);
-      
+   public ShareHistory(String id, DataSource dataSource) {
+      super(id, dataSource);
+      mapper = new ShareSessionMapper();
    }
 
    @Override

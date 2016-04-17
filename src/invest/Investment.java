@@ -18,11 +18,10 @@ import invest.session.builder.yahoo.YahooCurrencySessionBuilder;
 public class Investment {
 
    private String id;
-   private InvestmentType type;
+   private String type;
    private String webId;
    private String[] indicators;
-   private History history;
-   private SessionBuilder builder;
+   private String web;
    
    @XmlElement
    public void setId(String id){
@@ -36,81 +35,31 @@ public class Investment {
    
    @XmlElement
    public void setType(String type){
-      this.type = InvestmentType.valueOf(type);
-      switch (this.type)
-      {
-         case SHARE:
-            history = new ShareHistory(id);
-            break;
-         case COMMODITY:
-            history = new CommodityHistory(id);
-            break;
-         case CURRENCY:
-            history = new CurrencyHistory(id);
-            break;
-         case INDEX:
-            history = new IndexHistory(id);
-            break;
-         default:
-            // TODO Error case
-            break;
-      }
+      this.type = type;
    }   
    
    @XmlElement
    public void setWeb(String web){
-      InvestmentWebs iWebs = InvestmentWebs.valueOf(web);
-      switch (this.type)
-      {
-         case SHARE:
-            switch (iWebs){
-               case BLOOMBERG:
-                  builder = new BloombergShareSessionBuilder();
-                  break;
-               default:
-                  // TODO Error case
-            }
-            break;
-         case COMMODITY:
-            switch (iWebs){
-               case YAHOO:
-                  builder = new YahooCommoditySessionBuilder();
-                  break;
-               default:
-                  // TODO Error case
-            }
-            break;
-         case CURRENCY:
-            switch (iWebs){
-               case YAHOO:
-                  builder = new YahooCurrencySessionBuilder();
-                  break;
-               default:
-                  // TODO Error case
-            }
-            break;
-         case INDEX:
-            // TODO
-            break;
-         default:
-            // TODO Error case
-            break;
-      }
+      this.web = web;
    }
-   
-   public void update(){      
-      /* Get current session */
-      Session session = builder.getSession(webId);
-      
-      /* TODO Get Indicators from old sessions */
-      
-      /* TODO Update Knowledge */
-      
-      /* TODO Get Indicators from current session */
-      
-      /* TODO Make predictions */
-      
-      /* Add current session to history */
-      history.addSession(session);
+
+   public String getId() {
+      return id;
+   }
+
+   public String getType() {
+      return type;
+   }
+
+   public String getWebId() {
+      return webId;
+   }
+
+   public String[] getIndicators() {
+      return indicators;
+   }
+
+   public String getWeb() {
+      return web;
    }
 }

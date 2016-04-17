@@ -1,12 +1,14 @@
 package invest.history;
 
+import javax.sql.DataSource;
+
 import invest.session.IndexSession;
 import invest.session.Session;
 
 public class IndexHistory extends History {
 
-   public IndexHistory(String id) {
-      super(id);
+   public IndexHistory(String id, DataSource dataSource) {
+      super(id, dataSource);
       // TODO Auto-generated constructor stub
    }
 
