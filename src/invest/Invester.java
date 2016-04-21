@@ -16,6 +16,10 @@ public class Invester {
    
    private DataSource dataSource = null;
 
+   public Invester (DataSource dataSource){
+      this.dataSource = dataSource;
+   }
+   
    private static InvestmentType getInvestmentType (Investment invest){
       return InvestmentType.valueOf(invest.getType());
    }
@@ -112,10 +116,6 @@ public class Invester {
       
       /* Add current session to history */
       history.addSession(currentSession);
-   }
-   
-   public void setDataSource(DataSource dataSource) {
-      this.dataSource = dataSource;
    }
 
 }

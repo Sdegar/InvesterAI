@@ -1,5 +1,6 @@
 import java.io.File;
 
+import javax.sql.DataSource;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -24,7 +25,8 @@ public class Main {
          ApplicationContext context = 
                new ClassPathXmlApplicationContext("Beans.xml");
 
-         Invester invester = (Invester)context.getBean("studentJDBCTemplate");
+         DataSource dataSource = (DataSource)context.getBean("dataSource");
+         Invester invester = new Invester(dataSource);
          for (Investment invest : investments.getInvestment())
          {
             invester.update(invest);

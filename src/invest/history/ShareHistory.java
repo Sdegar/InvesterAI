@@ -7,12 +7,6 @@ import invest.session.ShareSession;
 import invest.session.mapper.ShareSessionMapper;
 
 public class ShareHistory extends History {
-
-   private final String CHECK_SQL = 
-         "SELECT * FROM INFORMATION_SCHEMA.TABLES " +  
-                  "WHERE TABLE_SCHEMA = 'TheSchema'" +  
-                  "AND  TABLE_NAME = 'TheTable')";
-   
    public ShareHistory(String id, DataSource dataSource) {
       super(id, dataSource);
       mapper = new ShareSessionMapper();
@@ -20,15 +14,31 @@ public class ShareHistory extends History {
 
    @Override
    public void addSession(Session session) {
-      // TODO Auto-generated method stub
-      
+      String SQL = "INSERT INTO " + id +
+                   " (date, openPrice, closePrice, intraMax, intraMin, per) " +
+                   "values (?, ?, ?, ?, ? ,?)";
+      java.sql.Date sqlDate = new java.sql.Date(session.getDate().getTime());
+      double per = ((ShareSession)session).getPER(); 
+      jdbcTemplateObject.update( 
+            SQL, id, sqlDate, session.getOpeningPrice(), session.getClosingPrice(),
+            session.getIntraDayMax(), session.getIntraDayMin(), per);
+      return;
    }
 
    @Override
-   public void getIndicators(int index) {
-      // TODO Auto-generated method stub
-      
+   public void create() {
+      String SQL = "CREATE TABLE " + id + " ( " +
+            "id INTEGER UNSIGNED AUTO_INCREMENT," + 
+            "date DATETIME DEFAULT NULL," +
+            "openPrice FLOAT," +
+            "closePrice FLOAT," +
+            "intraMax FLOAT," +
+            "intraMin FLOAT," +
+            "per FLOAT," +
+            "PRIMARY KEY (id)" +
+            ");";
+            
+      jdbcTemplateObject.execute( SQL );
+      return;
    }
-
-
 }
