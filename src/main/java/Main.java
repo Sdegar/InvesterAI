@@ -16,31 +16,29 @@ public class Main {
 
    private static ApplicationContext context;
 
-   private static Investments getInvestments(String file){
+   private static Investments getInvestments(String file) {
 
       JAXBContext jaxbContext;
       Investments investments = null;
       try {
          jaxbContext = JAXBContext.newInstance(Investments.class);
          Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-         investments = (Investments) jaxbUnmarshaller.unmarshal(
-               new File(file));
+         investments = (Investments) jaxbUnmarshaller.unmarshal(new File(file));
       } catch (JAXBException e) {
          // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return investments;
    }
-   
+
    public static void main(String[] args) {
 
       context = new ClassPathXmlApplicationContext("Beans.xml");
       Investments investments = getInvestments("Configuration.xml");
-      DataSource dataSource = (DataSource)context.getBean("dataSource");
+      DataSource dataSource = (DataSource) context.getBean("dataSource");
       Invester invester = new Invester(dataSource);
-      if (investments != null){
-         for (Investment invest : investments.getInvestment())
-         {
+      if (investments != null) {
+         for (Investment invest : investments.getInvestment()) {
             invester.update(invest);
          }
       }

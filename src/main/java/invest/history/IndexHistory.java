@@ -2,7 +2,6 @@ package invest.history;
 
 import javax.sql.DataSource;
 
-
 public class IndexHistory extends History {
 
    public IndexHistory(String id, DataSource dataSource) {

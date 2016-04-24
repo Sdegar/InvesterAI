@@ -1,4 +1,5 @@
 package invest;
+
 import javax.sql.DataSource;
 
 import invest.history.CommodityHistory;
@@ -13,23 +14,21 @@ import invest.session.builder.yahoo.YahooCommoditySessionBuilder;
 import invest.session.builder.yahoo.YahooCurrencySessionBuilder;
 
 public class Invester {
-   
+
    private DataSource dataSource = null;
 
-   public Invester (DataSource dataSource){
+   public Invester(DataSource dataSource) {
       this.dataSource = dataSource;
    }
-   
-   private static InvestmentType getInvestmentType (Investment invest){
+
+   private static InvestmentType getInvestmentType(Investment invest) {
       return InvestmentType.valueOf(invest.getType());
    }
-   
-   private History getHistory(Investment invest)
-   {
+
+   private History getHistory(Investment invest) {
       InvestmentType type = getInvestmentType(invest);
       History history = null;
-      switch (type)
-      {
+      switch (type) {
          case SHARE:
             history = new ShareHistory(invest.getId(), dataSource);
             break;
@@ -48,17 +47,16 @@ public class Invester {
       }
       return history;
    }
-   public Session getSession (Investment invest)
-   {
+
+   public Session getSession(Investment invest) {
       InvestmentWebs iWebs = InvestmentWebs.valueOf(invest.getWeb());
       InvestmentType type = getInvestmentType(invest);
       SessionBuilder builder = null;
       Session session = null;
-      
-      switch (type)
-      {
+
+      switch (type) {
          case SHARE:
-            switch (iWebs){
+            switch (iWebs) {
                case BLOOMBERG:
                   builder = new BloombergShareSessionBuilder();
                   break;
@@ -67,7 +65,7 @@ public class Invester {
             }
             break;
          case COMMODITY:
-            switch (iWebs){
+            switch (iWebs) {
                case YAHOO:
                   builder = new YahooCommoditySessionBuilder();
                   break;
@@ -76,7 +74,7 @@ public class Invester {
             }
             break;
          case CURRENCY:
-            switch (iWebs){
+            switch (iWebs) {
                case YAHOO:
                   builder = new YahooCurrencySessionBuilder();
                   break;
@@ -91,31 +89,30 @@ public class Invester {
             // TODO Error case
             break;
       }
-      if (builder != null)
-      {
+      if (builder != null) {
          session = builder.getSession(invest.getWebId());
       }
-      
+
       return session;
    }
-   
-   public void update(Investment invest){      
+
+   public void update(Investment invest) {
       /* Get current session */
       Session currentSession = getSession(invest);
-      
+
       /* Get history */
       History history = getHistory(invest);
-      
+
       /* TODO Get Indicators from old sessions */
-      
+
       /* TODO Update Knowledge */
-      
+
       /* TODO Get Indicators from current session */
-      
+
       /* TODO Make predictions */
-      
+
       /* Add current session to history */
-      //history.addSession(currentSession);
+      // history.addSession(currentSession);
 
       System.out.println(currentSession);
    }

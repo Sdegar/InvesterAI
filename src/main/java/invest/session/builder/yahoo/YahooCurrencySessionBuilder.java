@@ -5,8 +5,8 @@ import invest.session.builder.SessionBuilder;
 
 public class YahooCurrencySessionBuilder extends SessionBuilder {
 
-  public Session getSession(String builderId) {
-  return null;
-  }
+   public Session getSession(String builderId) {
+      return null;
+   }
 
 }
