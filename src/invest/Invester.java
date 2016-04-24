@@ -93,7 +93,7 @@ public class Invester {
       }
       if (builder != null)
       {
-         session = builder.getSession(invest.getId());
+         session = builder.getSession(invest.getWebId());
       }
       
       return session;
@@ -115,7 +115,9 @@ public class Invester {
       /* TODO Make predictions */
       
       /* Add current session to history */
-      history.addSession(currentSession);
+      //history.addSession(currentSession);
+
+      System.out.println(currentSession);
    }
 
 }

@@ -13,4 +13,11 @@ public class ShareSession extends Session {
       PER = pER;
    }
 
+   @Override
+   public String toString(){
+      String output = super.toString();
+      output = String.format("%s, PER: %.2f", output, PER);
+      return output;
+   }
+   
 }

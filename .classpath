@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/Mis documentos/Proyectos/workspace/InvesterAI/jar/jsoup-1.8.2.jar"/>
-	<classpathentry kind="lib" path="D:/Mis documentos/Proyectos/workspace/InvesterAI/jar/sqlite-jdbc-3.8.11.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.jdbc_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.data.core_1.9.1.20150106-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.core_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.aop_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.beans_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.context.support_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.context_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.expression_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.jms_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.orm_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.oxm_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.transaction_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.web.servlet_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/Herramientas/eclipse/plugins/org.springframework.web_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

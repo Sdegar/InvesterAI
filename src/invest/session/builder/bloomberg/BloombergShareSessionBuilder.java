@@ -15,11 +15,11 @@ public class BloombergShareSessionBuilder extends SessionBuilder {
 
    private static final String SHARE_URL= "http://www.bloomberg.com/quote/%s";
    private static final String DATE_REGEX = "<div class=\"price-datetime\">.*?([0-9]+\\/[0-9]+\\/[0-9]+).*?<\\/div>";
-   private static final String OPEN_REGEX = "Open.*?<\\/div>.*?([0-9]+.[0-9]+)";
-   private static final String CLOSE_REGEX = "class=\"price\">.*?([0-9]+.[0-9]+).*?<\\/div>";
-   private static final String INTRAMIN_REGEX = "Day Range.*?<\\/div>.*?([0-9]+.[0-9]+)";
-   private static final String INTRAMAX_REGEX = "Day Range.*?<\\/div>.*?[0-9]+.[0-9]+ - ([0-9]+.[0-9]+)";
-   private static final String PER_REGEX = "Current P\\/E Ratio.*?<\\/div>.*?([0-9]+.[0-9]+)";
+   private static final String OPEN_REGEX = "Open.*?<div class=\"cell__value cell__value_\">.*?([0-9]+\\.[0-9]+)";
+   private static final String CLOSE_REGEX = "class=\"price\">.*?([0-9]+\\.[0-9]+).*?<\\/div>";
+   private static final String INTRAMIN_REGEX = "Day Range.*?<\\/div>.*?([0-9]+\\.[0-9]+)";
+   private static final String INTRAMAX_REGEX = "Day Range.*?<\\/div>.*?[0-9]+\\.[0-9]+ - ([0-9]+\\.[0-9]+)";
+   private static final String PER_REGEX = "Current P\\/E Ratio.*?<\\/div>.*?([0-9]+\\.[0-9]+)";
    
    public Session getSession(String builderId) {
       ShareSession session = null;

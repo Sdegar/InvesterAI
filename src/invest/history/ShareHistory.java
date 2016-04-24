@@ -19,8 +19,8 @@ public class ShareHistory extends History {
                    "values (?, ?, ?, ?, ? ,?)";
       java.sql.Date sqlDate = new java.sql.Date(session.getDate().getTime());
       double per = ((ShareSession)session).getPER(); 
-      jdbcTemplateObject.update( 
-            SQL, id, sqlDate, session.getOpeningPrice(), session.getClosingPrice(),
+      jdbcTemplateObject.update(
+            SQL, sqlDate, session.getOpeningPrice(), session.getClosingPrice(),
             session.getIntraDayMax(), session.getIntraDayMin(), per);
       return;
    }
