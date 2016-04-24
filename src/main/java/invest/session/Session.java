@@ -52,8 +52,9 @@ public abstract class Session {
 
    @Override
    public String toString() {
-      String output = String.format("Date: %s, Close: %.2f, Open: %.2f, Intra Min: %.2f, Intra Max: %.2f", date,
-            closingPrice, openingPrice, intraDayMin, intraDayMax);
+      String output = String.format(
+            "Date: %s, Close: %.2f, Open: %.2f, Intra Min: %.2f, Intra Max: %.2f", 
+            date,closingPrice, openingPrice, intraDayMin, intraDayMax);
       return output;
    }
 
